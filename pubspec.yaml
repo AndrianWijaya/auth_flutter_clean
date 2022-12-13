@@ -1,0 +1,29 @@
+name: auth_flutter_clean
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  git: ^2.2.0
+  get: 4.6.5
+  flutter: 
+    sdk: flutter
+  google_fonts: ^3.0.1
+  drop_shadow_image: ^0.9.1
+  raised_buttons: ^0.0.2
+  dropdownfield2: ^1.0.7
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+
