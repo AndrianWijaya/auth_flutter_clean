@@ -3,6 +3,7 @@ import 'package:auth_flutter_clean/infrastructure/navigation/routes.dart';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,259 +24,284 @@ class SignupScreen extends GetView<SignupController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 70, bottom: 10),
-                child: Center(child: SizedBox(
-                  width: 80,
-                  height: 80,
-                  child: DropShadowImage(image: Image.asset('assets/images/logo.png'),
-                  blurRadius: 5,
-                  offset: const Offset(5,5),
-                  scale: 0.8),
-                  )
-                ) ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 60),
+              //   child: Center(child: SizedBox(
+              //     width: 80,
+              //     height: 80,
+              //     child: DropShadowImage(image: Image.asset('assets/images/logo.png'),
+              //     blurRadius: 5,
+              //     offset: const Offset(5,5),
+              //     scale: 0.8),
+              //     )
+              //   ) ),
               //Fullname
+              SizedBox(height: 70,),
               Padding(
-                padding: EdgeInsets.only(right: 20, left: 20, top: 30),
-                child: TextField(
-                  controller: controller.fullnameController,
-                  keyboardType: TextInputType.name,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                padding: EdgeInsets.only(right: 40, left: 40),
+                child: Container(
+                  height: 50,
+                  child: TextField(
+                    controller: controller.fullnameController,
+                    keyboardType: TextInputType.name,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Fullname"
                     ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Fullname"
                   ),
                 ),
               ),
               //Moblie Number
+              SizedBox(height: 10,),              
               Padding(
-                padding: EdgeInsets.only(right: 20, left: 20, top: 20),
-                child: TextField(
-                  controller: controller.mobileController,
-                  keyboardType: TextInputType.number,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                padding: EdgeInsets.only(right: 40, left: 40),
+                child: Container(
+                  height: 50,
+                  child: TextField(
+                    controller: controller.mobileController,
+                    keyboardType: TextInputType.number,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Mobile Number"
                     ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Mobile Number"
                   ),
                 ),
               ),
               //Email
+              SizedBox(height: 10,),
               Padding(
-                padding: EdgeInsets.only(right: 20, left: 20, top: 20),
-                child: TextField(
-                  controller: controller.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                padding: EdgeInsets.only(right: 40, left: 40),
+                child: Container(
+                  height: 50,
+                  child: TextField(
+                    controller: controller.emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Email"
                     ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Email"
                   ),
                 ),
               ),
-              //Type User]
+              //Type User
+              SizedBox(height: 10,),
               Padding(
-                padding: EdgeInsets.only(right: 20, left: 20, top: 20),
-                child: TextField(
-                  controller: controller.typeUserController,
-                  keyboardType: TextInputType.name,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                padding: EdgeInsets.only(right: 40, left: 40),
+                child: Container(
+                  height: 50,
+                  child: TextField(
+                    controller: controller.typeUserController,
+                    keyboardType: TextInputType.name,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Type User"
                     ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Type User"
                   ),
                 ),
               ),
               //Password
+              SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 20),
+                padding: const EdgeInsets.only(right: 40, left: 40),
                 child: Obx(() {
-                  return TextField(
-                  controller: controller.passwordController,
-                  obscureText: controller.isHidePassword.value,
-                  keyboardType: TextInputType.visiblePassword,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: const TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                  return Container(
+                    height: 50,
+                    child: TextField(
+                    controller: controller.passwordController,
+                    obscureText: controller.isHidePassword.value,
+                    keyboardType: TextInputType.visiblePassword,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: const TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: const OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Password",
+                      suffixIcon: IconButton(
+                        color: blue2,
+                        icon: controller.isHidePassword.value ? Icon(Icons.visibility_off) : Icon(Icons.remove_red_eye),
+                        onPressed: (() {
+                          controller.isHidePassword.value = !controller.isHidePassword.value;
+                        }),
+                      ),
                     ),
-                    errorBorder: const OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Password",
-                    suffixIcon: IconButton(
-                      color: blue2,
-                      icon: controller.isHidePassword.value ? Icon(Icons.visibility_off) : Icon(Icons.remove_red_eye),
-                      onPressed: (() {
-                        controller.isHidePassword.value = !controller.isHidePassword.value;
-                      }),
-                    ),
-                  ),
-                );
+                ),
+                  );
                 },)
               ),
               //Confrim Password
+              SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 30),
+                padding: const EdgeInsets.only(right: 40, left: 40),
                 child: Obx(() {
-                  return TextField(
-                  controller: controller.confrimPassController,
-                  obscureText: controller.isHidePassword2.value,
-                  keyboardType: TextInputType.visiblePassword,
-                  cursorColor: blue2,
-                  decoration: InputDecoration(
-                    hintMaxLines: 1,
-                    labelStyle: const TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 180, 180, 180)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                  return Container(
+                    height: 50,
+                    child: TextField(
+                    controller: controller.confrimPassController,
+                    obscureText: controller.isHidePassword2.value,
+                    keyboardType: TextInputType.visiblePassword,
+                    cursorColor: blue2,
+                    decoration: InputDecoration(
+                      hintMaxLines: 1,
+                      labelStyle: const TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 180, 180, 180)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: blue2),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: blue2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
+                      errorBorder: const OutlineInputBorder(
+                        borderSide:  BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      labelText: "Confirm Password",
+                      suffixIcon: IconButton(
+                        color: blue2,
+                        icon: controller.isHidePassword2.value ? Icon(Icons.visibility_off) : Icon(Icons.remove_red_eye),
+                        onPressed: (() {
+                          controller.isHidePassword2.value = !controller.isHidePassword2.value;
+                        }),
+                      ),
                     ),
-                    errorBorder: const OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.red),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    labelText: "Confirm Password",
-                    suffixIcon: IconButton(
-                      color: blue2,
-                      icon: controller.isHidePassword2.value ? Icon(Icons.visibility_off) : Icon(Icons.remove_red_eye),
-                      onPressed: (() {
-                        controller.isHidePassword2.value = !controller.isHidePassword2.value;
-                      }),
-                    ),
-                  ),
-                );
+                ),
+                  );
                 },)
               ),
+              SizedBox(height: 20,),
               Container(
                 width: 200,
                 decoration: BoxDecoration(
@@ -299,7 +325,76 @@ class SignupScreen extends GetView<SignupController> {
                   ),
                 ),
               ),
-              const SizedBox(height : 90),
+              SizedBox(height: 20,),
+              Text("or", style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 180, 180, 180)),),
+              SizedBox(height : 20),
+              Container(
+                height: 50,
+                width: 250,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SignInButton(
+                    Buttons.Facebook, onPressed:(){
+                      
+                    }),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                height: 50,
+                width: 250,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SignInButton(
+                    Buttons.Google, onPressed:(){
+                      
+                    }),
+                ),
+              ),
+              const SizedBox(height : 30),
+              //Text            
+              Container(
+                padding: EdgeInsets.only(left: 40, right: 40),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(text: "By signing up you accept the ", style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: GoogleFonts.quicksand().fontFamily)),
+                    TextSpan(
+                      text: "Terms of Service ",
+                      style: TextStyle(
+                        color: blue2,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: GoogleFonts.quicksand().fontFamily
+                      ),
+                      recognizer: TapGestureRecognizer()
+                      ..onTap = (() {
+
+                      })
+                      ),
+                      TextSpan(text: "and ", style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: GoogleFonts.quicksand().fontFamily)),
+                    TextSpan(
+                      text: "Privacy Policy",
+                      style: TextStyle(
+                        color: blue2,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: GoogleFonts.quicksand().fontFamily
+                      ),
+                      recognizer: TapGestureRecognizer()
+                      ..onTap = (() {
+                        
+                      })
+                      )
+                  ]
+                )),
+              ),
+              const SizedBox(height : 80),
               RichText(text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(text: "Already have an account? ", style: TextStyle(
@@ -314,7 +409,8 @@ class SignupScreen extends GetView<SignupController> {
                     ),
                     recognizer: TapGestureRecognizer()
                     ..onTap = (() {
-                      Get.toNamed(Routes.LOGIN);
+                      Get.offNamed(Routes.LOGIN);
+                      Get.delete<SignupController>();
                     })
                     )
                 ]

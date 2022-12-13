@@ -7,6 +7,8 @@ import 'package:auth_flutter_clean/infrastructure/navigation/routes.dart';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_view.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +31,7 @@ class LoginScreen extends GetView<LoginController> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 160, bottom: 10),
+                padding: const EdgeInsets.only(top: 120),
                 child: Center(child: SizedBox(
                   width: 90,
                   height: 90,
@@ -44,7 +46,7 @@ class LoginScreen extends GetView<LoginController> {
               //   fontSize: 30,
               //   color:  blue2),),
               Padding(
-                padding: EdgeInsets.only(right: 20, left: 20, top: 80),
+                padding: EdgeInsets.only(right: 40, left: 40, top: 70),
                 child: TextField(
                   controller: controller.usernameController,
                   keyboardType: TextInputType.emailAddress,
@@ -75,12 +77,12 @@ class LoginScreen extends GetView<LoginController> {
                         color: Colors.red),
                       borderRadius: BorderRadius.all(Radius.circular(15))
                     ),
-                    labelText: "Email"
+                    labelText: "Email / Mobile"
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 30),
+                padding: const EdgeInsets.only(right: 40, left: 40, top: 20),
                 child: Obx(() {
                   return TextField(
                   controller: controller.passnameController,
@@ -125,6 +127,7 @@ class LoginScreen extends GetView<LoginController> {
                 );
                 },)
               ),
+              SizedBox(height: 20,),
               Container(
                 width: 200,
                 decoration: BoxDecoration(
@@ -163,7 +166,35 @@ class LoginScreen extends GetView<LoginController> {
                     })
                     )
               ),
-              SizedBox(height : 225),
+              SizedBox(height: 20,),
+              Text("or", style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 180, 180, 180)),),
+              SizedBox(height : 20),
+              Container(
+                height: 50,
+                width: 250,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SignInButton(
+                    Buttons.Facebook, onPressed:(){
+                      
+                    }),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                height: 50,
+                width: 250,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SignInButton(
+                    Buttons.Google, onPressed:(){
+                      
+                    }),
+                ),
+              ),
+              SizedBox(height : 110),
               RichText(text: TextSpan(
                 children: <TextSpan>[
                   TextSpan(text: "Don't have account? ", style: TextStyle(
@@ -178,7 +209,8 @@ class LoginScreen extends GetView<LoginController> {
                     ),
                     recognizer: TapGestureRecognizer()
                     ..onTap = (() {
-                      Get.toNamed(Routes.SIGNUP);
+                      Get.offNamed(Routes.SIGNUP);
+                      Get.delete<LoginController>();
                     })
                     )
                 ]
